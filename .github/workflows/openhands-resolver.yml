@@ -69,7 +69,7 @@ jobs:
 
       - name: Get latest versions and create requirements.txt
         run: |
-          echo "openhands-resolver==0.9.0" >> requirements.txt
+          echo "openhands-resolver==0.3.1" >> requirements.txt
           cat requirements.txt
 
       - name: Cache pip dependencies
@@ -266,5 +266,6 @@ jobs:
                 body: `The workflow to fix this issue encountered an error. Please check the workflow logs for more information.\n\n> ALERT: message from your friendly neighborhood code agent -> this is an old version of the OpenHands github resolver. It has been moved to https://github.com/All-Hands-AI/OpenHands/tree/main/openhands/resolver`
               });
             }
+
 
 
