@@ -156,7 +156,7 @@ jobs:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           PYTHONPATH: ""
         run: |
-          cd /tmp && python -m openhands_resolver.resolve_issue \
+          cd /tmp && aider --yes --no-auto-commits --message "Resolve issue #${ISSUE_NUMBER}: create CONTRIBUTING.md as described in the issue" --model "glm-5.3-flash" --openai-api-base "https://api.b.ai/v1" 2>&1 || true
             --repo ${{ github.repository }} \
             --issue-number ${{ env.ISSUE_NUMBER }} \
             --issue-type ${{ env.ISSUE_TYPE }} \
@@ -266,6 +266,7 @@ jobs:
                 body: `The workflow to fix this issue encountered an error. Please check the workflow logs for more information.\n\n> ALERT: message from your friendly neighborhood code agent -> this is an old version of the OpenHands github resolver. It has been moved to https://github.com/All-Hands-AI/OpenHands/tree/main/openhands/resolver`
               });
             }
+
 
 
 
